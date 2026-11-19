@@ -1,0 +1,158 @@
+{
+  "config": {
+    "flow_title": "ESP Spa ({host})",
+    "step": {
+      "user": {
+        "title": "Spa module",
+        "description": "Enter the address of the ESP Spa module.",
+        "data": {
+          "host": "Host"
+        },
+        "data_description": {
+          "host": "Usually spa.local, or the module's IP address."
+        }
+      },
+      "password": {
+        "title": "Settings password",
+        "description": "Enter the module's settings password (the one chosen when the module was set up). It is used once to get a token for Home Assistant and is not stored. Getting a new token replaces any earlier one.",
+        "data": {
+          "password": "Settings password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Settings password",
+        "description": "The spa module at {host} no longer accepts Home Assistant's token (for example after a factory reset or after another Home Assistant was set up with it). Enter the settings password to get a new one.",
+        "data": {
+          "password": "Settings password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot reach the module. Check the address and that the module is on.",
+      "invalid_auth": "Wrong settings password.",
+      "not_esp_spa": "This address answers, but not like an ESP Spa module.",
+      "unknown": "Unexpected error, see the log."
+    },
+    "abort": {
+      "already_configured": "This spa module is already set up.",
+      "reauth_successful": "Done, Home Assistant has a new token.",
+      "cannot_connect": "Cannot reach the module.",
+      "not_esp_spa": "The device found on the network is not an ESP Spa module.",
+      "unknown": "Unexpected error, see the log."
+    }
+  },
+  "issues": {
+    "api_version": {
+      "title": "Spa module API version does not match",
+      "description": "The spa module at {host} uses API version {found}, but this version of the ESP Spa integration is written for API version {expected}. Some entities may be wrong or not work. Update the ESP Spa integration in the Marketplace, or the module's firmware, so the versions match."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "connected": { "name": "Connection" },
+      "heating": { "name": "Heating" },
+      "filtering": { "name": "Filter cycle" },
+      "circulation": { "name": "Circulation pump" },
+      "panel_locked": { "name": "Panel lock" }
+    },
+    "button": {
+      "reminder_done": { "name": "Reminder done" },
+      "sync_clock": { "name": "Sync clock" },
+      "aux": { "name": "Aux {number}" }
+    },
+    "climate": {
+      "spa": { "name": "Spa" }
+    },
+    "event": {
+      "reminder": {
+        "name": "Reminder",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "clean_filter": "Clean the filter",
+              "check_sanitizer": "Check the sanitizer",
+              "check_ph": "Check the pH",
+              "other": "Other reminder"
+            }
+          }
+        }
+      },
+      "error": {
+        "name": "Error",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "error": "Error"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "jets": { "name": "Jets {number}" },
+      "blower": { "name": "Blower" }
+    },
+    "light": {
+      "light": { "name": "Light {number}" }
+    },
+    "select": {
+      "heat_mode": {
+        "name": "Heat mode",
+        "state": {
+          "ready": "Ready",
+          "rest": "Rest"
+        }
+      },
+      "temp_range": {
+        "name": "Temperature range",
+        "state": {
+          "low": "Low",
+          "high": "High"
+        }
+      }
+    },
+    "sensor": {
+      "reminder": {
+        "name": "Reminder",
+        "state": {
+          "none": "None",
+          "clean_filter": "Clean the filter",
+          "check_sanitizer": "Check the sanitizer",
+          "check_ph": "Check the pH",
+          "other": "Other reminder"
+        }
+      },
+      "error": {
+        "name": "Error",
+        "state": {
+          "none": "No error",
+          "sensors_out_of_sync": "Sensors out of sync",
+          "low_flow": "Low water flow",
+          "flow_failed": "Water flow failed",
+          "settings_reset": "Settings reset",
+          "priming": "Priming mode",
+          "clock_failed": "Clock failed",
+          "memory_failure": "Program memory failure",
+          "sensors_out_of_sync_service": "Sensors out of sync, call for service",
+          "heater_dry": "Heater is dry",
+          "heater_may_be_dry": "Heater may be dry",
+          "water_too_hot": "Water too hot",
+          "heater_too_hot": "Heater too hot",
+          "sensor_a_fault": "Sensor A fault",
+          "sensor_b_fault": "Sensor B fault",
+          "pump_stuck": "A pump may be stuck on",
+          "hot_fault": "Hot fault",
+          "gfci_test_failed": "GFCI test failed",
+          "standby": "Standby (paused)",
+          "unknown": "Error, see the spa panel"
+        }
+      },
+      "spa_clock": { "name": "Clock" },
+      "signal": { "name": "WiFi signal" }
+    },
+    "switch": {
+      "pause": { "name": "Pause" },
+      "mister": { "name": "Mister" }
+    }
+  }
+}

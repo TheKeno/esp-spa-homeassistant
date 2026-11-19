@@ -1,0 +1,18 @@
+{
+  "domain": "esp_spa",
+  "name": "ESP Spa",
+  "codeowners": ["@TheKeno"],
+  "config_flow": true,
+  "documentation": "https://github.com/TheKeno/esp-spa-homeassistant",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/TheKeno/esp-spa-homeassistant/issues",
+  "requirements": [],
+  "version": "1.0.0",
+  "zeroconf": [
+    {
+      "type": "_http._tcp.local.",
+      "name": "spa*"
+    }
+  ]
+}
